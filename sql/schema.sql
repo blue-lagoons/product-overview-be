@@ -1,68 +1,51 @@
-DROP DATABASE IF EXISTS ;
+DROP DATABASE IF EXISTS productoverview;
 
-CREATE DATABASE product-overview;
+CREATE DATABASE productoverview;
+
+\c productoverview;
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
-    product_id INTEGER,
-    name VARCHAR(100),
-    slogan VARCHAR(250),
-    description VARCHAR(500),
-    category VARCHAR(100),
-    default_price INTEGER,
-    features INTEGER Foreign Key 
-)
-
-CREATE TABLE features (
-    id SERIAL PRIMARY KEY,
-    product_id INTEGER FOREIGN KEY,
-    feature VARCHAR(100),
-    value VARCHAR(100)
-)
-
-CREATE TABLE styles (
-    id SERIAL PRIMARY KEY,
-    product_id INTEGER FOREIGN KEY,
-    name VARCHAR(100),
-    sale_price INTEGER,
-    original_price INTEGER,
-    default_style VARCHAR(100)
-)
-
-CREATE TABLE photos (
-    id SERIAL PRIMARY KEY,
-    style_id INTEGER FOREIGN KEY,
-    url VARCHAR(150)
-)
-
-CREATE TABLE skus (
-    id SERIAL PRIMARY KEY,
-    style_id INTEGER FOREIGN KEY,
-    size VARCHAR(25),
-    quantity INTEGER
-)
+    name text,
+    slogan text,
+    description text,
+    category text,
+    default_price INTEGER
+);
+-- /Users/mmorahan/Desktop/SDC/Data-CSV-files/products.csv
+-- * answer! 
+-- psql -U postgres -f '/Users/mmorahan/Desktop/SDC/Repos/product-overview-be/sql/schema.sql'
+-- psql -U postgres -d productoverview -a -f '/Users/mmorahan/Desktop/SDC/Repos/product-overview-be/sql/schema.sql'
+\COPY products FROM '/Users/mmorahan/Desktop/SDC/Data-CSV-files/products.csv' DELIMITER ',' CSV HEADER;
 
 
+-- CREATE TABLE features (
+--     id SERIAL PRIMARY KEY,
+--     product_id INTEGER FOREIGN KEY,
+--     feature VARCHAR(100),
+--     value VARCHAR(100),
+-- )
 
--- {
---     "id": 7,
---     "name": "Blues Suede Shoes",
---     "slogan": "2019 Stanley Cup Limited Edition",
---     "description": "Touch down in the land of the Delta Blues in the middle of the pouring rain",
---     "category": "Dress Shoes",
---     "default_price": "120",
---     "features": [
---         {
---             "feature": "Sole",
---             "value": "Rubber"
---         },
---         {
---             "feature": "Material",
---             "value": "FullControlSkin"
---         },
---         {
---             "feature": "Stitching",
---             "value": "Double Stitch"
---         }
---     ]
--- }
+-- CREATE TABLE styles (
+--     id SERIAL PRIMARY KEY,
+--     product_id INTEGER FOREIGN KEY,
+--     name VARCHAR(100),
+--     sale_price INTEGER,
+--     original_price INTEGER,
+--     default_style VARCHAR(100)
+-- )
+
+-- CREATE TABLE photos (
+--     id SERIAL PRIMARY KEY,
+--     style_id INTEGER FOREIGN KEY,
+--     url VARCHAR(150)
+-- )
+
+-- CREATE TABLE skus (
+--     id SERIAL PRIMARY KEY,
+--     style_id INTEGER FOREIGN KEY,
+--     size VARCHAR(25),
+--     quantity INTEGER
+-- )
+
+
