@@ -19,33 +19,40 @@ CREATE TABLE products (
 \COPY products FROM '/Users/mmorahan/Desktop/SDC/Data-CSV-files/products.csv' DELIMITER ',' CSV HEADER;
 
 
--- CREATE TABLE features (
---     id SERIAL PRIMARY KEY,
---     product_id INTEGER FOREIGN KEY,
---     feature VARCHAR(100),
---     value VARCHAR(100),
--- )
+CREATE TABLE features (
+    id SERIAL PRIMARY KEY,
+    productId INTEGER FOREIGN KEY,
+    feature VARCHAR(100),
+    value VARCHAR(100),
+);
+\COPY features FROM '/Users/mmorahan/Desktop/SDC/Data-CSV-files/features.csv' DELIMITER ',' CSV HEADER;
 
--- CREATE TABLE styles (
---     id SERIAL PRIMARY KEY,
---     product_id INTEGER FOREIGN KEY,
---     name VARCHAR(100),
---     sale_price INTEGER,
---     original_price INTEGER,
---     default_style VARCHAR(100)
--- )
+-- check
+CREATE TABLE styles (
+    id SERIAL PRIMARY KEY,
+    productId INTEGER FOREIGN KEY,
+    name VARCHAR(100),
+    sale_price INTEGER,
+    original_price INTEGER,
+    default_style VARCHAR(100)
+);
+\COPY styles FROM '/Users/mmorahan/Desktop/SDC/Data-CSV-files/styles.csv' DELIMITER ',' CSV HEADER;
 
--- CREATE TABLE photos (
---     id SERIAL PRIMARY KEY,
---     style_id INTEGER FOREIGN KEY,
---     url VARCHAR(150)
--- )
+-- check
+CREATE TABLE photos (
+    id SERIAL PRIMARY KEY,
+    style_id INTEGER FOREIGN KEY,
+    url text,
+    thumbnail_url text
 
--- CREATE TABLE skus (
---     id SERIAL PRIMARY KEY,
---     style_id INTEGER FOREIGN KEY,
---     size VARCHAR(25),
---     quantity INTEGER
--- )
+);
+\COPY photos FROM '/Users/mmorahan/Desktop/SDC/Data-CSV-files/photos.csv' DELIMITER ',' CSV HEADER;
 
-
+-- check
+CREATE TABLE skus (
+    id SERIAL PRIMARY KEY,
+    styleId INTEGER FOREIGN KEY,
+    size VARCHAR(25),
+    quantity INTEGER
+);
+\COPY skus FROM '/Users/mmorahan/Desktop/SDC/Data-CSV-files/skus.csv' DELIMITER ',' CSV HEADER;
