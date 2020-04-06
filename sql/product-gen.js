@@ -7,16 +7,22 @@ let id = 1000012;
 let finalProductId = 10000000;
 
 //id,name,slogan,description,category,default_price
+let wStream = fs.createWriteStream('csvFiles/generated-products.csv');
+
 while (id <= finalProductId) {
     let name = faker.hacker.adjective() + " " + faker.hacker.noun();
     let slogan = faker.company.catchPhrase();
     let description = faker.lorem.sentence();
-    let category = faker.random.arrayElement(["Kicks", "Accessories", "Skirt", "Suit", "Slacks", "Shorts", "Cap", "Jacket", "Pants", "Heels", "Socks", "Backpack", "Sunglasses","Dress","Shoes","Coat","Romper"]);
+    let category = faker.random.arrayElement(["Kicks","Accessories","Skirt","Suit","Slacks","Shorts","Cap","Jacket","Pants","Heels","Socks","Backpack","Sunglasses","Dress","Shoes","Coat","Romper"]);
     let default_price = faker.random.number({ min: 1, max: 1023 });
 
-    fs.appendFileSync('csvFiles/generated-products.csv',
+    wStream.write(
         `${id},"${name}","${slogan}","${description}","${category}",${default_price}\n`
     );
+
+    // fs.appendFileSync('csvFiles/generated-products.csv',
+    //     `${id},"${name}","${slogan}","${description}","${category}",${default_price}\n`
+    // );
     ++id;
 };
 
