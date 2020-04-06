@@ -1,0 +1,24 @@
+{
+  "name": "product-overview-back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blue-lagoons/product-overview-be.git"
+  },
+  "author": "Michael Morahan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blue-lagoons/product-overview-be/issues"
+  },
+  "homepage": "https://github.com/blue-lagoons/product-overview-be#readme",
+  "dependencies": {
+    "faker": "4.1.0",
+    "mongoose": "^5.9.7",
+    "pg": "^8.0.0"
+  }
+}
