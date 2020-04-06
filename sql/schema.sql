@@ -13,11 +13,16 @@ CREATE TABLE products (
     category text,
     default_price INTEGER
 );
+--  ===== Product Data ======
 -- /Users/mmorahan/Desktop/SDC/Data-CSV-files/products.csv
+-- /Users/mmorahan/Desktop/SDC/Repos/product-overview-be/csvFiles/generated-products.csv
+
 -- * answer! 
 -- psql -U postgres -f '/Users/mmorahan/Desktop/SDC/Repos/product-overview-be/sql/schema.sql'
 -- psql -U postgres -d productoverview -a -f '/Users/mmorahan/Desktop/SDC/Repos/product-overview-be/sql/schema.sql'
 \COPY products FROM '/Users/mmorahan/Desktop/SDC/Data-CSV-files/products.csv' DELIMITER ',' CSV HEADER;
+\COPY products FROM '/Users/mmorahan/Desktop/SDC/Repos/product-overview-be/csvFiles/generated-products.csv' DELIMITER ',' CSV HEADER;
+
 
 --check 2
 CREATE TABLE features (

@@ -15,13 +15,11 @@ while (id <= finalProductId) {
     let default_price = faker.random.number({ min: 1, max: 1023 });
 
     fs.appendFileSync('csvFiles/generated-products.csv',
-        `${id},"${name}","${slogan}","${description}","${category}",${default_price},\n`
+        `${id},"${name}","${slogan}","${description}","${category}",${default_price}\n`
     );
     ++id;
 };
 
-const t1 = preformance.now();
+const t1 = performance.now();
 console.log('execution time (ms): ', t1 - t0);
 console.log('execution time (min): ', (t1 - t0) / (60000));
-
-// psql - U postgres - f '/Users/mmorahan/Desktop/SDC/Repos/product-overview-be/sql/product-gen.js'
