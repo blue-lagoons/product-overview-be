@@ -16,7 +16,7 @@ while (styleId <= finalFeatureId) {
     wStream.write(
         `${id},"${styleId}","XS","${value}"\n${id+1},"${styleId}","S","${value}"\n${id+2},"${styleId}","M","${value}"\n${id+3},"${styleId}","L","${value}"\n${id+4},"${styleId}","XL","${value}"\n${id+5},"${styleId}","XXL","${value}"\n`
     );
-    id += 5;
+    id += 6;
     ++styleId;
 };
 
