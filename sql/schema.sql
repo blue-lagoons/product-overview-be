@@ -54,8 +54,6 @@ CREATE TABLE photos (
 );
 \COPY photos FROM '/Users/mmorahan/Desktop/SDC/Data-CSV-files/samplePhotos.csv' DELIMITER ',' CSV HEADER;
 
-
-
 CREATE TABLE skus (
     id SERIAL PRIMARY KEY,
     styleId INTEGER,
