@@ -50,7 +50,6 @@ CREATE TABLE photos (
     style_id INTEGER,
     url text,
     thumbnail_url text
-
 );
 \COPY photos FROM '/Users/mmorahan/Desktop/SDC/Data-CSV-files/samplePhotos.csv' DELIMITER ',' CSV HEADER;
 
