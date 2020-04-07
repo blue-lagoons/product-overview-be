@@ -20,9 +20,6 @@ while (id <= finalProductId) {
         `${id},"${name}","${slogan}","${description}","${category}",${default_price}\n`
     );
 
-    // fs.appendFileSync('csvFiles/generated-products.csv',
-    //     `${id},"${name}","${slogan}","${description}","${category}",${default_price}\n`
-    // );
     ++id;
 };
 
