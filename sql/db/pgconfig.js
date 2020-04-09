@@ -25,15 +25,14 @@ function getProduct(id){
 
 function getProductStyle(productId){
   return ( 
-    pool.query(`select * from styles WHERE product_id = ${productId}`)
-        .then(data => {
-            return data.results;
-        })
-        .catch((err) => err)
+    pool.query(`select * from styles WHERE productid = ${productId} limit 6`)
+    .then(data => {
+        console.log("query success === ", data.rows)
+        return data.rows;
+    })
+    .catch((err) => {console.log("error === ", err)})
   )
 }
-
-
 
 module.exports = {
   getProducts,
@@ -44,4 +43,3 @@ module.exports = {
     // getCart,
     // addToCart,
     // logInteraction,
-    // getProductStyle
