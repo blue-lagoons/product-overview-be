@@ -21,11 +21,11 @@ app.get('/products/:product_id', (req, res) => {
       .catch((err) => err);
 });
 
-app.get('/products/:product_id/styles') {
+app.get('/products/:product_id/styles', (req, res) => {
     dbMethods.getProductStyle(req.params.product_id)
     .then(result => res.send(result))
     .catch((err) => err)
-};
+});
 
 
 app.listen(port, () => {
