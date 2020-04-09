@@ -15,7 +15,6 @@ app.get('/products/list', (req, res) => {
 })
 
 app.get('/products/:product_id', (req, res) => {
-//   console.log("logging ====", req.params)
     dbMethods.getProduct(req.params.product_id)
       .then(result => res.send(result))
       .catch((err) => err);
@@ -24,9 +23,8 @@ app.get('/products/:product_id', (req, res) => {
 app.get('/products/:product_id/styles', (req, res) => {
     dbMethods.getProductStyle(req.params.product_id)
     .then(result => res.send(result))
-    .catch((err) => err)
+    .catch((err) => {console.log("error 2 === ", err);})
 });
-
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
