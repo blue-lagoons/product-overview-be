@@ -11,14 +11,21 @@ app.get('api')
 app.get('/products/list', (req, res) => {
     dbMethods.getProducts()
     .then(result => res.send(result))
-    .catch(err => console.log(err));
+    .catch((err) => err);
 })
 
-app.get('/products', (req, res) => {
-    dbMethods.Methods.getProduct(req)
+app.get('/products/:product_id', (req, res) => {
+//   console.log("logging ====", req.params)
+    dbMethods.getProduct(req.params.product_id)
+      .then(result => res.send(result))
+      .catch((err) => err);
+});
+
+app.get('/products/:product_id/styles') {
+    dbMethods.getProductStyle(req.params.product_id)
     .then(result => res.send(result))
-    .catch((err) => console.log(err))
-})
+    .catch((err) => err)
+};
 
 
 app.listen(port, () => {
