@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "nodemon /sql/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,8 +18,13 @@
   },
   "homepage": "https://github.com/blue-lagoons/product-overview-be#readme",
   "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
     "faker": "4.1.0",
     "mongoose": "^5.9.7",
     "pg": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
