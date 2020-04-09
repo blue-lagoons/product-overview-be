@@ -5,27 +5,43 @@ const pool = new Pool({
     password: '1234'
 });
 
-function getProduct(){
-    return pool.query('select * from products limit 1')
-      .then(data => {
-          return data.rows;
-      })
-}
 
 function getProducts(){
     return pool.query('select * from products limit 10')
-      .then(data => {
-          return data.rows;
-      })
+    .then(data => {
+        return data.rows;
+    })
 }
+
+function getProduct(id){
+    return (
+      pool.query(`select * from products WHERE id = ${id}`)
+        .then(data => {
+            return data.rows;
+        })
+        .catch((err) => err)
+    );
+}
+
+function getProductStyle(productId){
+  return ( 
+    pool.query(`select * from styles WHERE product_id = ${productId}`)
+        .then(data => {
+            return data.results;
+        })
+        .catch((err) => err)
+  )
+}
+
+
 
 module.exports = {
   getProducts,
   getProduct,
+  getProductStyle
 };
 
     // getCart,
     // addToCart,
     // logInteraction,
-    // getProduct,
     // getProductStyle
