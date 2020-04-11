@@ -6,7 +6,6 @@ const express = require('express');
 const app = express();
 const {key} = require("./secret.js")
 const {port} = require("./secret.js")
-console.log("secrets === ", port)
 const dbMethods = require('./db/pgconfig');
 const body = require('body-parser');
 
