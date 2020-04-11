@@ -1,31 +1,35 @@
+# # Simplified Test 1
+# config:
+#   target: "http://localhost:3000"
+#   phases:
+#     - duration: 5
+#       arrivalRate: 5
+#     # - duration: 10
+#     #   arrivalRate: 50
+#     #   rampTo: 50
+#     # - duration: 10
+#     #   arrivalRate: 500
+# scenarios:
+#   - name: "Look up Product"
+#     flow:
+#       - get:
+#           url: "/products/1"
+
 # Tiger Eye Test
 config:
-  target: "https://localhost:3000"
+  target: "http://localhost:3000"
   processor: "./randomizer.js"
   phases:
-    - duration: 60
+    - duration: 15
       arrivalRate: 5
-    - duration: 120
-      arrivalRate: 5
-      rampTo: 50
-    - duration: 600
-      arrivalRate: 50
+      rampTo: 500
+    # - duration: 20
+    #   arrivalRate: 50
 scenarios:
   - name: "Search and Add To Cart"
     flow:
       - get:
-          url: "/products/{{ number }}"
-          capture:
-            json: "$.results[0].id"
-            as: "id"
-      - get:
-          url: "/details/{{ id }}"
-      - think: 3
-      - post:
-          url: "/cart"
-          json:
-            productId: "{{ id }}"
-
+          url: "/products/{{ generateRandomData }}"
 
 
 # ==== getting started script ====
