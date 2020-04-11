@@ -2,7 +2,7 @@ const Faker = require("faker");
 
 function generateRandomData(userContext, events, done) {
   // generate data with Faker:
-  const number = faker.random.number({ min: 1, max: 10000000 });
+  const number = faker.random.number({ min: 9000000, max: 10000000 });
 
   // add variables to virtual user's context:
   userContext.vars.number = number;
