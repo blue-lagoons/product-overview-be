@@ -5,7 +5,7 @@ function generateRandomData(userContext, events, done) {
   const number = faker.random.number({ min: 9000000, max: 10000000 });
 
   // continue with executing the scenario:
-  return done();
+  return number();
 }
 
 module.exports = {
