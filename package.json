@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/blue-lagoons/product-overview-be#readme",
   "dependencies": {
+    "artillery": "^1.6.0",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "faker": "4.1.0",
