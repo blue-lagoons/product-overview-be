@@ -93,7 +93,7 @@ CREATE TABLE skus (
 -- Create Indexes
 CREATE INDEX idx_skus_id ON skus(id);
 CREATE INDEX idx_skus_styleId ON skus(styleId);
-CREATE INDEX idx_skus_size ON skus(style);
+CREATE INDEX idx_skus_size ON skus(size);
 CREATE INDEX idx_skus_quantity ON skus(quantity);
 
 -- ==== How to run schema.sql and write to PSQL * answer = line 21! 
