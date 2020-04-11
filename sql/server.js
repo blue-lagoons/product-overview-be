@@ -1,6 +1,12 @@
+require("newrelic");
+// const dotenv = require("dotenv");
+// const myEnv = dotenv.config();
+// console.log("my ENV ==== ", process.env);
 const express = require('express');
 const app = express();
-const port = 3000;
+const {key} = require("./secret.js")
+const {port} = require("./secret.js")
+console.log("secrets === ", port)
 const dbMethods = require('./db/pgconfig');
 const body = require('body-parser');
 
