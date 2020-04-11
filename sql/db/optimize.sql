@@ -1,3 +1,4 @@
+\c productoverview;
 
 -- products 
 CREATE INDEX idx_products_id ON products(id);
@@ -30,5 +31,5 @@ CREATE INDEX idx_photos_thumbnail_url ON photos(thumbnail_url);
 -- SKUs
 CREATE INDEX idx_skus_id ON skus(id);
 CREATE INDEX idx_skus_styleId ON skus(styleId);
-CREATE INDEX idx_skus_size ON skus(style);
+CREATE INDEX idx_skus_size ON skus(size);
 CREATE INDEX idx_skus_quantity ON skus(quantity);
