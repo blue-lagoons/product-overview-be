@@ -3,8 +3,8 @@ config:
   target: "http://localhost:3000"
   processor: "./randomizer.js"
   phases: 
-    - duration: 15
-      arrivalRate: 5
+    - duration: 10
+      arrivalRate: 50
       rampTo: 500
 scenarios:
   - name: "Search Product ID"
