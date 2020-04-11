@@ -1,12 +1,75 @@
+# Tiger Eye Test
 config:
-  target: 'https://artillery.io'
+  target: "https://localhost:3000"
+  processor: "./randomizer.js"
   phases:
     - duration: 60
-      arrivalRate: 20
-  defaults:
-    headers:
-      x-my-service-auth: '987401838271002188298567'
+      arrivalRate: 5
+    - duration: 120
+      arrivalRate: 5
+      rampTo: 50
+    - duration: 600
+      arrivalRate: 50
 scenarios:
-  - flow:
-    - get:
-        url: "/docs"
+  - name: "Search and Add To Cart"
+    flow:
+      - get:
+          url: "/products/{{ number }}"
+          capture:
+            json: "$.results[0].id"
+            as: "id"
+      - get:
+          url: "/details/{{ id }}"
+      - think: 3
+      - post:
+          url: "/cart"
+          json:
+            productId: "{{ id }}"
+
+
+
+# ==== getting started script ====
+# config:
+#   target: 'https://artillery.io'
+#   phases:
+#     - duration: 60
+#       arrivalRate: 20
+#   defaults:
+#     headers:
+#       x-my-service-auth: '987401838271002188298567'
+# scenarios:
+#   - flow:
+#     - get:
+#         url: "/docs"
+
+# ===== example script below ======
+# config:
+#   target: "https://staging1.local"
+#   phases:
+#     - duration: 60
+#       arrivalRate: 5
+#     - duration: 120
+#       arrivalRate: 5
+#       rampTo: 50
+#     - duration: 600
+#       arrivalRate: 50
+#   payload:
+#     path: "keywords.csv"
+#     fields:
+#       - "keywords"
+# scenarios:
+#   - name: "Search and buy"
+#     flow:
+#       - post:
+#           url: "/search"
+#           body: "kw={{ keywords }}"
+#           capture:
+#             json: "$.results[0].id"
+#             as: "id"
+#       - get:
+#           url: "/details/{{ id }}"
+#       - think: 3
+#       - post:
+#           url: "/cart"
+#           json:
+#             productId: "{{ id }}"
