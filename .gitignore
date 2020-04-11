@@ -4,7 +4,7 @@ newrelic.js/
 
 sql/secret.js
 secret.js
-
+*.log
 *.env
 
 
