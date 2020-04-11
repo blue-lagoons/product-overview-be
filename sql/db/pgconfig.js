@@ -5,7 +5,6 @@ const pool = new Pool({
     password: '1234'
 });
 
-
 function getProducts(){
     return pool.query('select * from products limit 10')
     .then(data => {
