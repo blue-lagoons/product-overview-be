@@ -1,10 +1,8 @@
-
-
 # Tiger Eye Test
 config:
   target: "http://localhost:3000"
   processor: "./randomizer.js"
-  phases:
+  phases: 
     - duration: 15
       arrivalRate: 5
       rampTo: 500
