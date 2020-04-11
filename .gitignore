@@ -1,2 +1,11 @@
 *.csv
 node_modules/
+newrelic.js/
+
+sql/secret.js
+secret.js
+
+*.env
+
+
+
