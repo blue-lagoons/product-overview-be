@@ -1,19 +1,4 @@
-# # Simplified Test 1
-# config:
-#   target: "http://localhost:3000"
-#   phases:
-#     - duration: 5
-#       arrivalRate: 5
-#     # - duration: 10
-#     #   arrivalRate: 50
-#     #   rampTo: 50
-#     # - duration: 10
-#     #   arrivalRate: 500
-# scenarios:
-#   - name: "Look up Product"
-#     flow:
-#       - get:
-#           url: "/products/1"
+
 
 # Tiger Eye Test
 config:
@@ -23,10 +8,8 @@ config:
     - duration: 15
       arrivalRate: 5
       rampTo: 500
-    # - duration: 20
-    #   arrivalRate: 50
 scenarios:
-  - name: "Search and Add To Cart"
+  - name: "Search Product ID"
     flow:
       - get:
           url: "/products/{{ generateRandomData }}"
