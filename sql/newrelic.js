@@ -5,7 +5,7 @@
  * See lib/config/default.js in the agent distribution for a more complete
  * description of configuration variables and their potential values.
  */
-const {key} = require('./secret.js');
+const { obj } = require('./secret.js');
 exports.config = {
   /**
    * Array of application names.
@@ -15,7 +15,7 @@ exports.config = {
    * Your New Relic license key.
    */
   
-  license_key: key,
+  license_key: obj.key,
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing

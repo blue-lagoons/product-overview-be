@@ -1,8 +1,9 @@
 const { Pool } = require('pg');
+const { obj } = require('../secret');
 const pool = new Pool({
     database: 'productoverview',
     user: 'postgres',
-    password: '1234'
+    password: obj.key,
 });
 
 function getProducts(){

@@ -1,11 +1,7 @@
 require("newrelic");
-// const dotenv = require("dotenv");
-// const myEnv = dotenv.config();
-// console.log("my ENV ==== ", process.env);
 const express = require('express');
 const app = express();
-const {key} = require("./secret.js")
-const {port} = require("./secret.js")
+const { obj } = require('./secret');
 const dbMethods = require('./db/pgconfig');
 const body = require('body-parser');
 
@@ -31,8 +27,8 @@ app.get('/products/:product_id/styles', (req, res) => {
     .catch((err) => {console.log("error 2 === ", err);})
 });
 
-app.listen(port, () => {
-    console.log(`listening on port ${port}`);
+app.listen(obj.port, () => {
+    console.log(`listening on port ${obj.port}`);
 });
 
 // module.exports = {
