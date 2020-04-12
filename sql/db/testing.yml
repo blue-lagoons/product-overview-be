@@ -12,21 +12,6 @@ scenarios:
       - get:
           url: "/products/{{ generateRandomData }}"
 
-
-# ==== getting started script ====
-# config:
-#   target: 'https://artillery.io'
-#   phases:
-#     - duration: 60
-#       arrivalRate: 20
-#   defaults:
-#     headers:
-#       x-my-service-auth: '987401838271002188298567'
-# scenarios:
-#   - flow:
-#     - get:
-#         url: "/docs"
-
 # ===== example script below ======
 # config:
 #   target: "https://staging1.local"
