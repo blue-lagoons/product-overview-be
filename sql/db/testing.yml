@@ -3,14 +3,14 @@ config:
   target: "http://localhost:3000"
   processor: "./randomizer.js"
   phases: 
-    - duration: 25
+    - duration: 60
       arrivalRate: 1
-      rampTo: 1000
+      rampTo: 2000
 scenarios:
   - name: "Search Product ID"
     flow:
       - get:
-          url: "/products/{{ generateRandomData }}"
+          url: "/products/{{ getRandomInt }}"
 
 # ===== example script below ======
 # config:
