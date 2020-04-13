@@ -16,6 +16,6 @@ function generateRandomData(userContext, events, done) {
 // getRandomInt(1, 10000000);
 
 module.exports = {
-  getRandomInt
-  // generateRandomData
+  // getRandomInt
+  generateRandomData
 };
