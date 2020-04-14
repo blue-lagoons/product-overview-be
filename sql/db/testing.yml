@@ -1,16 +1,20 @@
 # Tiger Eye Test
 config:
   target: "http://localhost:3000"
-  processor: "./randomizer.js"
   phases: 
-    - duration: 60
-      arrivalRate: 1
-      rampTo: 2000
+    - duration: 10
+      arrivalRate: 1000
+      rampTo: 10000
+  # processor: "./randomizer.js"
+
 scenarios:
   - name: "Search Product ID"
     flow:
+      # - function: "generateRandomData"
       - get:
-          url: "/products/{{ getRandomInt }}"
+          url: "/products/9347591"
+          # url: "/products/7000000"
+      # - log: "Sent a request to /products/{{ number }}"
 
 # ===== example script below ======
 # config:
@@ -43,3 +47,28 @@ scenarios:
 #           url: "/cart"
 #           json:
 #             productId: "{{ id }}"
+
+
+# ex faker data:
+# config:
+#   target: "https://myapi.staging.example.com"
+#   phases:
+#     - duration: 60
+#       arrivalRate: 20
+#     - duration: 600
+#       arrivalRate: 50
+#   processor: "./my-functions.js"
+
+# scenarios:
+#   - name: "Register a user"
+#     flow:
+#       # call generateRandomData() to create the name, email, and password variables
+#       - function: "generateRandomData"
+#       - post:
+#           url: "/users"
+#           json:
+#             name: "{{ name }}"
+#             email: "{{ email }}"
+#             password: "{{ password }}"
+#       # Print the data we're sending while debugging the script:
+#       - log: "Sent a request to /users with {{ name }}, {{ email }}, {{ password }}"
