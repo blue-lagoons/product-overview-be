@@ -3,7 +3,7 @@ const { obj } = require('../secret');
 const pool = new Pool({
     database: 'productoverview',
     user: 'postgres',
-    password: obj.key,
+    password: obj.pw,
 });
 
 function getProducts(){
