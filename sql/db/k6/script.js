@@ -19,7 +19,7 @@ export default function () {
 export let options = {
     stages: [
         { duration: '5s', target: 10},
-        { duration: '10s', target: 500},
+        { duration: '15s', target: 1000},
         { duration: '5s', targer: 0}
     ],
     throw: true,         // throw errors on failed HTTP requests
