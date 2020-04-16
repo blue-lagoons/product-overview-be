@@ -16,7 +16,7 @@ app.get('/products/list', (req, res) => {
 })
 
 app.get('/products/:product_id', (req, res) => {
-    console.log("james test === ", req.params.product_id);
+    // console.log("james test === ", req.params.product_id);
     dbMethods.getProduct(req.params.product_id)
       .then(result => res.send(result))
       .catch((err) => err);
