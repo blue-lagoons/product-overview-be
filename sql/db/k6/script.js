@@ -8,20 +8,22 @@ export let errorRate = new Rate("errors");
 
 export default function () {
   var url = `http://localhost:3000/products/${Math.ceil(Math.random() * 1000000)}`;
-  check(http.get(url), {
-    "status is 200": (r) => r.status == 200,
-  }) || errorRate.add(1);
-  sleep(0.01);
-}
+  for (let i = 0; i < 150; i++){
+      check(http.get(url), {
+        "status is 200": (r) => r.status == 200,
+      }) || errorRate.add(1);
+      sleep(0.01);
+    }
+  }
 
 export let options = {
     stages: [
-        { duration: '10s', target: 10},
-        { duration: '15s', target: 5000},
-        { duration: '10s', targer: 0}
+        { duration: '5s', target: 10},
+        { duration: '10s', target: 500},
+        { duration: '5s', targer: 0}
     ],
     throw: true,         // throw errors on failed HTTP requests
-    discardResponseBodies: true, //discard repsponse bodies to lessen the amount of mem required
+    // discardResponseBodies: true, //discard repsponse bodies to lessen the amount of mem required
     thresholds: {http_req_duration: ["max<2000"]},
 };
 
