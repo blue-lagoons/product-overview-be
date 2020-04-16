@@ -27,7 +27,7 @@ function getProductStyle(productId){
   return ( 
     pool.query(`select * from styles WHERE productid = ${productId} limit 6`)
     .then(data => {
-        console.log("query success === ", data.rows)
+        // console.log("query success === ", data.rows)
         return data.rows;
     })
     .catch((err) => {console.log("error === ", err)})
