@@ -32,7 +32,7 @@ export let options = {
     ],
     throw: true,         // throw errors on failed HTTP requests
     // discardResponseBodies: true, //discard repsponse bodies to lessen the amount of mem required
-    thresholds: {
+    thresholds: { 
         http_req_duration: ["max<2000"],
         errors: ["rate<0.1"], // test passes if error rate is less than 10 %
     },
